@@ -10,6 +10,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     use: ['ts-loader'],
     exclude: /node_modules/
   }
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2?)$/,
+    use: ['file-loader']
+  }
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
 
   const cssLoader:webpack.RuleSetRule = {
     test: /\.s[ac]ss$/,
@@ -29,6 +37,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   }
   return [
     typescriptLoader,
-    cssLoader
+    cssLoader,
+    svgLoader,
+    fileLoader
   ]
 }
