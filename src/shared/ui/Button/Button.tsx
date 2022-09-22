@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, FC } from 'react';
-import styles from './Button.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
+import styles from './Button.module.scss';
 
 export enum ButtonVariants {
   DEFAULT = 'default',
@@ -12,13 +12,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariants;
 }
 
-export const Button: FC<ButtonProps> = ({ className, variant = ButtonVariants.DEFAULT, onClick, children, ...rest }) => {
-  return (
+export const Button: FC<ButtonProps> = ({
+    className, variant = ButtonVariants.DEFAULT, onClick, children, ...rest
+}) => (
     <button
-      onClick={onClick}
-      className={classNames(styles.Button, {}, [className, styles[variant]])}
+        type="button"
+        onClick={onClick}
+        className={classNames(styles.Button, {}, [className, styles[variant]])}
+        {...rest}
     >
-      {children}
+        {children}
     </button>
-  );
-};
+);

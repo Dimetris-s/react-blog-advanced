@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import styles from './AppLink.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Link, LinkProps } from 'react-router-dom';
+import styles from './AppLink.module.scss';
 
 export enum AppLinkVariants {
   PRIMARY = 'primary',
@@ -13,14 +13,14 @@ interface AppLinkProps extends LinkProps {
   variant?: AppLinkVariants;
 }
 
-export const AppLink: FC<AppLinkProps> = ({ variant = AppLinkVariants.PRIMARY, className, to, children, ...rest }) => {
-  return (
+export const AppLink: FC<AppLinkProps> = ({
+    variant = AppLinkVariants.PRIMARY, className, to, children, ...rest
+}) => (
     <Link
-      to={to}
-      className={classNames(styles.AppLink, {}, [styles[variant], className])}
-      {...rest}
+        to={to}
+        className={classNames(styles.AppLink, {}, [styles[variant], className])}
+        {...rest}
     >
-      {children}
+        {children}
     </Link>
-  );
-};
+);
