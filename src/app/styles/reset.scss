@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   border: 0;
@@ -9,10 +11,12 @@ a {
   text-decoration: none;
 }
 
-li, ul {
+li,
+ul {
   list-style: none;
 }
 
-input, button {
+input,
+button {
   outline: none;
 }
